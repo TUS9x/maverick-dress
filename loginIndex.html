@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Admin</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="./js/function.js"></script>
+    <script src="./js/jquery-3.6.4.js"></script>
+    <script src="./js/load-data.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/myStyle.css">
+</head>
+<body>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdThemMoi"
+        style="position: fixed; top: 600px; z-index: 9000;">Thêm mới
+    </button>
+    <!------------- MODAL ----------->
+    <!-- Modal them moi san pham -->
+    <div class="modal fade" id="modelIdThemMoi" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">THÊM SẢN PHẨM</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" name="frm">
+                        <div class="form-group">
+                            <label for="id">Id:</label>
+                            <input type="number" name="id" id="id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="cat_id">cat_id</label>
+                            <input type="text" name="cat_id" id="cat_id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="name"> Name:</label>
+                            <input type="text" name="name" id="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" name="price" id="price" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="img"> Hinh URL</label>
+                            <input type="text" name="img" id="img" class="form-control">
+                            <input type="file" name="" id="" class="form-control" Onchange="xuLyFile()">
+                        </div>
+                        <div class="form-group">
+                            <label for="detail">Detail:</label>
+                            <input type="text" name="detail" id="detail" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Decription: </label>
+                            <input type="text" name="description" id="description" class="form-control">
+                        </div>
+                        <br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary save">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Sua san pham -->
+    <div class="modal fade" id="modelIdSua" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">SỬA SẢN PHẨM</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" name="frm">
+                        <div class="form-group">
+                            <label for="id">Id:</label>
+                            <input type="number" name="id" id="edit-id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="cat_id">cat_id</label>
+                            <input type="text" name="cat_id" id="edit-cat_id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="name"> Name:</label>
+                            <input type="text" name="name" id="edit-name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" name="price" id="edit-price" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="img"> Hinh URL</label>
+                            <input type="text" name="img" id="edit-img" class="form-control">
+                            <input type="file" name="" id="" class="form-control" Onchange="xuLyFile()">
+                        </div>
+                        <div class="form-group">
+                            <label for="detail">Detail:</label>
+                            <input type="text" name="detail" id="edit-detail" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Decription: </label>
+                            <input type="text" name="description" id="edit-description" class="form-control">
+                        </div>
+                        <br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary sua">Cập Nhật</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Xoa san pham -->
+    <div class="modal fade" id="modelIdXoa" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thông báo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc chắn muốn xoá sản phẩm này không?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary ok">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- navigation -->
+    <div class="container-fluid">
+        <div id="top-bar-inner" class="row">
+            <div class="top-bar-link col-md-4 col-sm-4">NGUYEN TU - Student1457484</div>
+            <div class="top-bar-divider col-md-1 col-sm-1">|</div>
+            <div class="top-bar-link col-md-2 col-sm-2">ACCP2302</div>
+            <div class="top-bar-divider col-md-1 col-sm-1">|</div>
+            <div class="top-bar-link col-md-4 col-sm-4">LY HOANG SON - Student1457465</div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row" id="top-banner">
+            <div class="col-lg-4 col-md-4 col-12" id="top-banner-logo">
+                <a href="../index.html" title="Maverick Dress">
+                    <img src="./image/logo/MTC_FinalLogos-01.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-8" id="top-banner-search">
+                <input class="search-text" type="text" name="xSearch" value="" placeholder="Search" maxlength="40"
+                    id="search_input">
+                <input id="search-button" class="search-button" type="button" value="">
+            </div>
+            <div class="col-lg-4 col-md-4 col-4 justify-content-end row" id="top-banner-icons">
+                <div class="col-lg-2 col-3" id="top-banner-icons-welcome">
+                    <a href="#" data-toggle="modal" data-target="#modal-login" class="logout">Log out</a>
+                </div>
+                <div class="col-lg-2 col-3" id="top-banner-icons-account">
+                    <a title="My Account" data-toggle="modal" data-target="#modal-account"></a>
+                    <div class="modal" id="modal-account">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">ACCOUNT</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis voluptatibus
+                                    placeat cumque itaque! Laudantium, distinctio corrupti sapiente laborum in beatae?
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light row">
+        <a class="navbar-brand col-lg-2 col-9" href="./index.html">
+            <h2>HOME</h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-aboutus">ABOUT US</a>
+                    <div class="modal" id="modal-aboutus">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">MAVERICK DRESS</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    At MD Shop, we want to make buying your uniform as simple and straightforward as
+                                    possible, as well as affordable. That’s why we offer an extensive collection of
+                                    uniform you can buy online and have delivered straight to your door.
+                                    <br><br>
+                                    Stocking only top brands, we’re one of the UK’s leading uniform suppliers. So,
+                                    whether you’re shopping for your uniform essentials, you’re sure to find everything
+                                    you need right here - with quality clothes at fantastic online prices.
+                                    <br> <br>
+                                    To discover great deals on your clothes, explore our full collection online now.
+                                    <br><br>
+                                    Premium-quality uniform from brands you can trust
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-help">HELP</a>
+                    <div class="modal" id="modal-help">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">HELP</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Obcaecati placeat eos
+                                    unde a, expedita ipsum perferendis in? Fuga, molestiae. Rerum.
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <marquee class="row" behavior="alternate" direction="">
+            <div id="home-page-brands">
+                <div class="home-page-brands-row">
+                    <div class="home-page-brand-logo">
+                        <a href="" title="One+All Schoolwear">
+                            <img src="./image/brand/One-All.png" alt="One+All Schoolwear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Banner Schoolwear">
+                            <img src="./image/brand/Banner.png" alt="Banner Schoolwear">
+                        </a>
+                    </div>
+
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Trutex Schoolwear">
+                            <img src="./image/brand/Trutex.png" alt="Trutex Schoolwear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Winterbottom's Schoolwear">
+                            <img src="./image/brand/Winterbottoms.png" alt="Winterbottom's Schoolwear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Akoa Sportswear">
+                            <img src="./image/brand/Akoa.png" alt="Akoa Sportswear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Falcon Sportswear">
+                            <img src="./image/brand/Falcon.png" alt="Falcon Sportswear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="JUCO Sportswear">
+                            <img src="./image/brand/JUCO.png" alt="JUCO Sportswear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Chadwick Teamwear">
+                            <img src="./image/brand/Term-Footwear.png" alt="Chadwick Teamwear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="David Luke Schoolwear">
+                            <img src="./image/brand/David-Luke.png" alt="David Luke Schoolwear">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </marquee>
+    </div>
+    <div class="container">
+        <div class="row">
+            <table class="table" id="table"></table>
+        </div>
+    </div>
+    <div id="footer" class="container-fluid">
+        <div id="footer-inner" class="row">
+            <div id="footer-left" class="col-md-8 col-sm-6">
+                Time: &nbsp; <a id="time" href="#">000</a><br>
+                Email:&nbsp;<a href="#">ex@ex.com</a>&nbsp;&nbsp; &nbsp;&nbsp;Telephone:&nbsp; <a
+                    href="tel:+441432343532">0000&nbsp;00&nbsp;00&nbsp;00</a>&nbsp;&nbsp;
+                <br> Fax:
+                <br> Maverick Dress, Moon
+                <br> Instagram:
+                <br> Facebook:
+            </div>
+            <div id="footer-right" class="col-md-4 col-sm-6">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2559780504657!2d106.66419370996417!3d10.79169625886885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529d34a6bd6ab%3A0x5673d22fb78f82dd!2sMaverick!5e0!3m2!1svi!2s!4v1683986856271!5m2!1svi!2s"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+<script>
+        $(function () {
+            //Kiem tra dang nhap
+            if (!localStorage.getItem('admin')) window.location='index.html'
+            // dang xuat
+            $('.logout').click(function () {
+                localStorage.removeItem('admin');
+                window.location='index.html'
+            })
+            myUrl = "https://645b91baa8f9e4d6e76c3740.mockapi.io/producDoAn/"
+            $.ajax({
+                type: 'GET',
+                url: myUrl,
+                success: function (data) {
+                    s = ''
+                    $.each(data, function (k, v) {
+                        s += `<tr id='sp_${v.id}'>
+                                <td>${v.id}</td>
+                                <td>${v.name}</td>
+                                <td>
+                                    <button type="button" class="xoa btn btn-danger btn-lg" data-toggle="modal" data-target="#modelIdXoa" data-id='${v.id}' onclick="f1(${v.id})">Xoá</button>
+                                </td>
+                                <td><button type="button" class="sua btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdSua" data-id='${v.id}'>Sửa</button>
+                                </td>
+                            </tr>`
+                    })
+                    $('#table').html(s)
+                    //thiet lap su kien cho nut xoa a.xoa
+                    $('#table a.xoa').click(function () {
+                        id = $(this).data('id')
+                        alert('xoa phan tu ' + id)
+                        $.ajax({
+                            url: myUrl + "/" + id,
+                            type: 'DELETE',
+                            success: function (data) {
+                                console.log(data)
+                                $('#sp_' + id).hide(1000)
+                                console.log($(this));
+                            }
+                        })
+                    })
+                    // Thiet lap su kien cho nut sua a.sua
+                    $('#table button.sua').click(function () {
+                        id = $(this).data('id')
+                        $.each(data, function (k, v) {
+                            if (v.id == id) {
+                                document.getElementById('edit-name').value = v.name;
+                                document.getElementById('edit-price').value = v.price;
+                                document.getElementById('edit-img').value = v.img;
+                                document.getElementById('edit-detail').value = v.detail;
+                                document.getElementById('edit-id').value = v.id;
+                                document.getElementById('edit-cat_id').value = v.cat_id;
+                                document.getElementById('edit-description').value = v.description;
+                            }
+                        })
+                    })
+                }
+            })
+        })
+        //modal-tạo-moi--Nut-save__Luu-san-pham
+        $(function () {
+            $('button.save').click(function () {
+                //them moi
+                obj = {
+                    "name": $('form #name').val(),
+                    "price": $('form #price').val(),
+                    "img": $('form #img').val(),
+                    "detail": $('form #detail').val(),
+                    "id": $('form #id').val(),
+                    "cat_id": $('form #cat_id').val(),
+                    "description": $('form #description').val()
+                }
+                console.log($('form #img').val())
+                myUrl = "https://645b91baa8f9e4d6e76c3740.mockapi.io/producDoAn"
+
+                $.post(myUrl, obj, function (data, status) {
+                    alert("Data: " + data + "\nStatus: " + status)
+                    console.log(data);
+                    location.reload();
+                })
+            })
+        })
+        //modal-tạo-moi--Nut-save__Luu-san-pham
+        $(function () {
+            $('button.sua').click(function () {
+                //sua san pham
+                obj = {
+                    "name": $('form #edit-name').val(),
+                    "price": $('form #edit-price').val(),
+                    "img": $('form #edit-img').val(),
+                    "detail": $('form #edit-detail').val(),
+                    "id": $('form #edit-id').val(),
+                    "cat_id": $('form #edit-cat_id').val(),
+                    "description": $('form #edit-description').val()
+                }
+                myUrl = "https://645b91baa8f9e4d6e76c3740.mockapi.io/producDoAn/";
+                $.ajax({
+                    type: "PUT",
+                    url: myUrl + "/" + $('form #edit-id').val(),
+                    success: function (data) {
+                        // $(obj).put(data);
+                        alert('Cap nhat san pham thanh cong!')
+                        location.reload()
+                    },
+                    error: function (error) {
+                        alert('Error: ' + error);
+                    },
+                    dataType: "json",
+                    data: obj
+                });
+            })
+        })
+        // nut ok. xoa san pham
+        $(function () {
+            $('button.ok').click(function () {
+                // alert('ok')
+                id = localStorage.getItem("id")
+                myUrl = "https://645b91baa8f9e4d6e76c3740.mockapi.io/producDoAn/";
+                $.ajax({
+                    url: myUrl + "/" + id,
+                    type: 'DELETE',
+                    success: function (data) {
+                        //console.log(data)
+                        // $('#sp_' + id).hide(1000)
+                        //console.log($(this));
+                        alert('xoa san pham thanh cong')
+                        localStorage.removeItem('id');
+                        location.reload()
+                    }
+                })
+            })
+        })
+
+        function f1(id) {
+            localStorage.setItem("id", id)
+        }
+
+        function xuLyFile() {
+            var arr = event.target.files; //mảng các file được chọn(name, LastModified,...)
+            var f = arr[0]
+            var cat_id = document.getElementById('cat_id').value;
+            console.log(f.name);
+            //truong hop tao moi
+            var cat_id = document.getElementById('cat_id').value;
+            console.log(f.name);
+            document.getElementById('img').value = `./image/${cat_id}/${f.name}`
+            // truong hop edit
+            var cat_id2 = document.getElementById('edit-cat_id').value;
+            console.log(f.name);
+            document.getElementById('edit-img').value = `./image/${cat_id2}/${f.name}`
+            //  "./image./" + cat_id + "/" + f.name;
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js "
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 "
+        crossorigin="anonymous "></script>
+    <!-- <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM "
+        crossorigin="anonymous "></script>
+</body>
+
+</html>

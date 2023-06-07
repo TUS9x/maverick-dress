@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maverick Dress</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="./js/function.js"></script>
+    <script src="./js/jquery-3.6.4.js"></script>
+    <script src="./js/load-data.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/myStyle.css">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div id="top-bar-inner" class="row">
+            <div class="top-bar-link col-md-4 col-sm-4">NGUYEN TU - Student1457484</div>
+            <div class="top-bar-divider col-md-1 col-sm-1">|</div>
+            <div class="top-bar-link col-md-2 col-sm-2">ACCP2302</div>
+            <div class="top-bar-divider col-md-1 col-sm-1">|</div>
+            <div class="top-bar-link col-md-4 col-sm-4">LY HOANG SON - Student1457465</div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row" id="top-banner">
+            <div class="col-lg-4 col-md-4 col-12" id="top-banner-logo">
+                <a href="./index.html" title="Maverick Dress">
+                    <img src="./image/logo/MTC_FinalLogos-01.png" alt="">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-8" id="top-banner-search">
+                <input class="search-text" type="text" name="xSearch" value="" placeholder="Search" maxlength="40"
+                    id="search_input">
+                <input id="search-button" class="search-button" type="button" value="">
+            </div>
+            <div class="col-lg-4 col-md-4 col-4 justify-content-end row" id="top-banner-icons">
+                <div class="col-lg-2 col-3" id="top-banner-icons-welcome">
+                    <a href="#" data-toggle="modal" data-target="#modal-login">Log in</a>
+                    <div class="modal" id="modal-login">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">LOG IN</h4>
+
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <form class="px-4 py-3">
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormEmail1">Email address</label>
+                                            <input type="email" class="form-control" id="formEmail"
+                                                placeholder="maverick@gmail.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormPassword1">Password</label>
+                                            <input type="password" class="form-control"
+                                                id="formPassword" placeholder="123456">
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                            <label class="form-check-label" for="#">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                        <button type="button" class="btn btn-primary login">Sign in</button>
+                                    </form>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Sign up</a>
+                                    <a class="dropdown-item" href="#">Forgot password?</a>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-3" id="top-banner-icons-account">
+                    <a title="My Account" data-toggle="modal" data-target="#modal-account"></a>
+                    <div class="modal" id="modal-account">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">ACCOUNT</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis voluptatibus
+                                    placeat cumque itaque! Laudantium, distinctio corrupti sapiente laborum in beatae?
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-3" id="top-banner-icons-basket">
+                    <a title="My Bag" data-toggle="modal" data-target="#cartModal"><span id="top-banner-icon-basket-qty"></span></a>
+                    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header border-bottom-0">
+                                    <h5 class="modal-title" id="modalLabel">
+                                        Your Shopping Cart
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="cart-top row">
+                                        <div class="col-2"></div>
+                                        <div class="col-5">Product</div>
+                                        <div class="col-1">Size</div>
+                                        <div class="col-1">Price</div>
+                                        <div class="col-1">Qty</div>
+                                        <div class="col-1"></div>
+                                    </div>
+                                    <hr>
+                                    <div class="cart-product">
+
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-end">
+                                        <h5 class="col-4">Total:&nbsp;&nbsp;<span class="price text-success"></span></h5>
+                                    </div>
+                                </div>
+                                <div class="modal-footer border-top-0 d-flex justify-content-between">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-success"
+                                        onclick="alert('Shopping success'); location.reload()">Buy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light row">
+        <a class="navbar-brand col-lg-2 col-9" href="./index.html">
+            <h2>HOME</h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-aboutus">ABOUT US</a>
+                    <div class="modal fade" id="modal-aboutus">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">MAVERICK DRESS</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    At MD Shop, we want to make buying your  uniform as simple and straightforward as possible, as well as affordable. 
+                                    <br><br>  That’s why we offer an extensive collection of uniform you can buy online and have delivered straight to your door.
+
+                                    <br> <br>   
+                                    Stocking only top brands, we’re one of the UK’s leading uniform suppliers. So, whether you’re shopping for your uniform essentials, you’re sure to find everything you need right here - with quality clothes at fantastic online prices.
+                                    
+                                    To discover great deals on your clothes, explore our full collection online now.
+                                    <br><br>
+                                    Premium-quality uniform from brands you can trust
+                                    
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">BRAND</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-item-sale" href="#">SALE</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        PRODUCTS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Shirts</a>
+                        <a class="dropdown-item" href="#">Skirts</a>
+                        <a class="dropdown-item" href="#">Frocks</a>
+                        <a class="dropdown-item" href="#">P.T. T-shirts</a>
+                        <a class="dropdown-item" href="#">P.T. shorts</a>
+                        <a class="dropdown-item" href="#">P.T. track pants</a>
+                        <a class="dropdown-item" href="#">Belts</a>
+                        <a class="dropdown-item" href="#">Ties</a>
+                        <a class="dropdown-item" href="#">Logos</a>
+                        <a class="dropdown-item" href="#">Socks</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-contactus">CONTACT US</a>
+                    <div class="modal" id="modal-contactus">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">CONTACT US</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div id="info-page">
+
+                                        <h2>Helpline Number</h2>
+
+                                        <p>In case of any query please call one of our customer service representatives
+                                            on
+                                            <a href="#">000 0000 000</a> or email <a href="#">maverickdress@gmail.com</a>
+                                        </p>
+                                        <p>Our helpline is staffed between 9:30am and 4:30pm Monday to Friday.</p>
+
+                                        <h2>Contact and Company Details</h2>
+
+                                        <ul class="link-list">
+                                            <li>
+                                                <span class="link-list-title">Email: </span>
+                                                <span class="link-list-info"><a href="#">maverickdress@gmail.com</a></span>
+                                            </li>
+                                            <li>
+                                                <span class="link-list-title">Telephone/Zalo: </span>
+                                                <span class="link-list-info">000 0000 000 </span>
+                                            </li>
+                                            <li>
+                                                <span class="link-list-title"> Address:    </span>
+                                                <span class="link-list-info"> <a href="https://goo.gl/maps/v8JewsxyDPaZGa3aA"> Maverick Dress, 33 Đ. Đặng Văn Ngữ, Phường 14, Phú Nhuận, TP. Hồ Chí Minh 730000, Việt Nam.</a> </span>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-help">HELP</a>
+                    <div class="modal" id="modal-help">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">HELP</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <ul class="link-list">
+                                        <li>
+                                            <span class="link-list-title"></span>
+                                            <span class="link-list-info"><a href="#">Lorem ipsum dolor sit amet?</a></span>
+                                        </li>
+                                        <li>
+                                            <span class="link-list-title"></span>
+                                            <span class="link-list-info"><a href="#">Lorem ipsum dolor sit?</a></span>
+                                        </li>
+                                        <li>
+                                            <span class="link-list-title"></span>
+                                            <span class="link-list-info"><a href="#">Lorem ipsum dolor, sit amet consectetur adipisicing elit?</a></span>
+                                        </li>
+                                        <br>
+                                        <h5>Mail us to feedback:</h5> <a href="#">maverickdress@gmail.com</a>
+                                    </ul>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <marquee class="row" behavior="alternate" direction="">
+            <div id="home-page-brands">
+                <div class="home-page-brands-row">
+                    <div class="home-page-brand-logo">
+                        <a href="" title="One+All Schoolwear">
+                            <img src="./image/brand/One-All.png" alt="One+All Schoolwear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Banner Schoolwear">
+                            <img src="./image/brand/Banner.png" alt="Banner Schoolwear">
+                        </a>
+                    </div>
+
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Trutex Schoolwear">
+                            <img src="./image/brand/Trutex.png" alt="Trutex Schoolwear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Winterbottom's Schoolwear">
+                            <img src="./image/brand/Winterbottoms.png" alt="Winterbottom's Schoolwear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Akoa Sportswear">
+                            <img src="./image/brand/Akoa.png" alt="Akoa Sportswear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Falcon Sportswear">
+                            <img src="./image/brand/Falcon.png" alt="Falcon Sportswear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="JUCO Sportswear">
+                            <img src="./image/brand/JUCO.png" alt="JUCO Sportswear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="Chadwick Teamwear">
+                            <img src="./image/brand/Term-Footwear.png" alt="Chadwick Teamwear">
+                        </a>
+                    </div>
+                    <div class="home-page-brand-logo">
+                        <a href="" title="David Luke Schoolwear">
+                            <img src="./image/brand/David-Luke.png" alt="David Luke Schoolwear">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </marquee>
+    </div>
+    <div class="container-fluid">
+        <div class="row section-search">
+            <p class="col-md-12 col-sm-12">Find your ideal here </p>
+            <form class="section-search-form form-group col-md-9 col-sm-9" id="section-search-form">
+                <span class="section-search-item col-md-3 col-sm-3">
+                    <label class="section-search-label" for="xBrand">Brand:</label>
+                    <select name="xBrand" id="xBrand" class="section-search-select form-control"
+                        onchange="brandChanged()">
+                        <option value="" selected="selected">All</option>
+                        <option value="banner">Banner</option>
+                        <option value="david-luke">David-luke</option>
+                        <option value="one-all">One-all</option>
+                        <option value="trutex">Trutex</option>
+                    </select>
+                </span>
+                <span class="section-search-item col-md-3 col-sm-3">
+                    <label class="section-search-label">Color</label>
+                    <select name="xColour" id="xColour" class="section-search-select form-control"
+                        onchange="brandChanged()">
+                        <option value="" selected="selected">All</option>
+                        <option value="amber">Amber</option>
+                        <option value="black">Black</option>
+                        <option value="bottle-green">Bottle Green</option>
+                        <option value="burgundy">Burgundy</option>
+                        <option value="dark-royal">Dark Royal</option>
+                        <option value="emerald">Emerald</option>
+                        <option value="grey">Grey</option>
+                        <option value="jade">Jade</option>
+                        <option value="marl-grey">Marl Grey</option>
+                        <option value="maroon">Maroon</option>
+                        <option value="navy">Navy</option>
+                        <option value="purple">Purple</option>
+                        <option value="red">Red</option>
+                        <option value="royal">Royal</option>
+                        <option value="scarlet">Scarlet</option>
+                        <option value="school-grey">School Grey</option>
+                        <option value="sky">Sky</option>
+                    </select>
+                </span>
+                <span class="section-search-item col-md-3 col-sm-3">
+                    <label class="section-search-label multi-line">Gender</label>
+                    <select name="gender" id="gender" class="section-search-select form-control"
+                        onchange="brandChanged()">
+                        <option value="" selected="selected">All</option>
+                        <option value="men">Male</option>
+                        <option value="women">Female</option>
+                        <option value="unisex">Unisex</option>
+                    </select>
+                </span>
+            </form>
+        </div>
+        <div class="section-search">
+            <p class="row">
+                <span class="section-search-total col-md-3 col-12">Total Products: ..</span>
+                <span class="col-md-1 col-6">Sort By:</span>
+                <a id="section-search-recomend" class="section-search-select col-md-2 col-6">Recommend</a>
+                <a id="section-search--span__soft-low-to-hight" class="col-md-2 col-4">Price Low to High</a>
+                <a id="section-search--span__soft-hight-to-low" class="col-md-2 col-4"> Price High to Low</a>
+                <a id="section-search--span__sort-by-name" class="col-md-2 col-4"> Product Name</a>
+            </p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div id="product-blocks" class="row">
+
+        </div>
+    </div>
+    <div id="footer" class="container-fluid">
+        <div id="footer-inner" class="row">
+            <div id="footer-left" class="col-md-8 col-sm-6">
+                Time: &nbsp; <a id="time" href="#">000</a><br>
+                Email:&nbsp;<a href="#">ex@ex.com</a>&nbsp;&nbsp; &nbsp;&nbsp;Telephone:&nbsp; <a
+                    href="tel:+441432343532">0000&nbsp;00&nbsp;00&nbsp;00</a>&nbsp;&nbsp;
+                <br> Fax:
+                <br> Maverick Dress, 33 Đ. Đặng Văn Ngữ, Phường 14, Phú Nhuận, TP. Hồ Chí Minh 730000, Việt Nam
+                <br> Instagram:
+                <br> Facebook:
+            </div>
+            <div id="footer-right" class="col-md-4 col-sm-6">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2559780504657!2d106.66419370996417!3d10.79169625886885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529d34a6bd6ab%3A0x5673d22fb78f82dd!2sMaverick!5e0!3m2!1svi!2s!4v1683986856271!5m2!1svi!2s"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- Modal chi tiet san pham -->
+    <div class="modal fade" id="modelChiTietSanPham" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">THÔNG TIN SẢN PHẨM</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" id="render1-product">
+
+                    </div>
+                    <div class="row" id="render2-product">
+
+
+                    </div>
+                    <!-- <div class=" modal-footer ">
+                        <button type="button " class="btn btn-secondary " data-dismiss="modal ">Close</button>
+                        <button type="button " class="btn btn-primary save ">THÊM VÀO GIỎ HÀNG</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js "
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 "
+            crossorigin="anonymous "></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM "
+            crossorigin="anonymous "></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+     #content {
+         display: flex;
+         flex-wrap: wrap;
+         text-align: center;
+     }
+     
+     #content .sp {
+         width: 350px;
+         height: 500px;
+         border-style: solid;
+         margin: 10px;
+     }
+     
+     #content .sp img {
+         width: 280;
+         height: 420px;
+     }
