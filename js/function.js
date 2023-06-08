@@ -74,8 +74,11 @@ function loadData(arr) {
             })
         })
         // SET day
-    const d = new Date();
-    document.getElementById("time").innerHTML = d;
+        intervalId = window.setInterval(function(){
+            var d = new Date();
+        document.getElementById("time").innerHTML = d;
+          }, 1000);
+        // 
 }
 
 function numberBag() {
@@ -226,4 +229,10 @@ function brandChanged2(obj) {
     var query0 = obj.innerHTML.toLocaleLowerCase()
     product_timkiem1 = timkiem(product, query0)
     loadData(product_timkiem1)
+}
+//Buy
+function buyStatus() {
+    let listCart1 = document.querySelectorAll('#cartModal .modal-dialog .cart-product .product-block-container');
+    if (listCart1.length==0) {alert("gio hang trong")} 
+    else { alert('shopping success'); location.reload()}
 }
