@@ -1,8 +1,9 @@
 //Dinh nghia ham
 let bag = [];
+
 function loadData(arr) {
     let s = '';
-    $.each(arr, function (i, v) {
+    $.each(arr, function(i, v) {
         s += `<a class="data-cart" >
         <div class="product-block-container" data-id="${v.id}">
         <img src="${v.img}" onclick="chiTiet(${v.id})" data-toggle="modal" data-target="#modelChiTietSanPham">
@@ -16,24 +17,24 @@ function loadData(arr) {
     $('.section-search .section-search-total').html("Total Products: " + arr.length)
     let list = document.querySelectorAll('#product-blocks a .product-block-container');
     list.forEach(item => {
-        item.addEventListener('click', function (event) {
-            // su kien click cho bag
-            if (event.target.classList.contains('product-block-bag')) {
-                // var itemNew = item.cloneNode(true);
-                let idbag = this.getAttribute('data-id');
-                let checkIsset = false;
-                let listCart = document.querySelectorAll('#top-banner-icons-basket #cartModal .modal-dialog .modal-body .cart-product');
-                listCart.forEach(cart => {
-                    if (cart.getAttribute('data-id') == idbag) {
-                        checkIsset = true;
-                    }
-                })
-                if (checkIsset == false) {
-                    let bagitem = '';
-                    let tong=0;
-                    $.each(product, function (k, v) {
-                        if (v.id == idbag) {
-                            bagitem = `
+            item.addEventListener('click', function(event) {
+                // su kien click cho bag
+                if (event.target.classList.contains('product-block-bag')) {
+                    // var itemNew = item.cloneNode(true);
+                    let idbag = this.getAttribute('data-id');
+                    let checkIsset = false;
+                    let listCart = document.querySelectorAll('#top-banner-icons-basket #cartModal .modal-dialog .modal-body .cart-product');
+                    listCart.forEach(cart => {
+                        if (cart.getAttribute('data-id') == idbag) {
+                            checkIsset = true;
+                        }
+                    })
+                    if (checkIsset == false) {
+                        let bagitem = '';
+                        let tong = 0;
+                        $.each(product, function(k, v) {
+                            if (v.id == idbag) {
+                                bagitem = `
                             <div class="product-block-container row" data-id="${v.id}">
                             <div class="col-2 justify-content-center"><img src="${v.img}" onclick="chiTiet(${v.id})" data-toggle="modal" data-target="#modelChiTietSanPham"> </div>
                             <h2 onclick="chiTiet(${v.id})" data-toggle="modal" data-target="#modelChiTietSanPham" class="col-5">${v.name}</h2>
@@ -49,62 +50,60 @@ function loadData(arr) {
                             <div class="top-basket-remove col-1" onclick= "Remove(${v.id});numberBag()"></div>
                             </div>
                             `
-                            bag.push(bagitem);
-                        }
-                        $('#top-banner-icons-basket #cartModal .modal-dialog .modal-body .cart-product').html(bag);
-                    })
-                }
+                                bag.push(bagitem);
+                            }
+                            $('#top-banner-icons-basket #cartModal .modal-dialog .modal-body .cart-product').html(bag);
+                        })
+                    }
 
-                //Them number cho Bag
-                let listCart1 = document.querySelectorAll('#cartModal .modal-dialog .cart-product .product-block-container');
-                document.getElementById('top-banner-icon-basket-qty').innerHTML = listCart1.length;
-                console.log(listCart1.length)
-                var total=0;
-                for (var i = 0; i < listCart1.length; i++)
-                {  
-                var cart_id = listCart1[i].getAttribute('data-id');
-                var prices=listCart1[i].querySelector('.product-block-prices').getAttribute('data-price');                  
-                let item = listCart1[i].querySelector('input[name="qty"]');// lấy giá trị trong thẻ input
-                var quantity = item.value;
-                var number = quantity*1 
-                total += (prices * number); 
-                 }
-                $('#top-banner-icons-basket #cartModal .modal-dialog .text-success').html(total);
-            }        
+                    //Them number cho Bag
+                    let listCart1 = document.querySelectorAll('#cartModal .modal-dialog .cart-product .product-block-container');
+                    document.getElementById('top-banner-icon-basket-qty').innerHTML = listCart1.length;
+                    console.log(listCart1.length)
+                    var total = 0;
+                    for (var i = 0; i < listCart1.length; i++) {
+                        var cart_id = listCart1[i].getAttribute('data-id');
+                        var prices = listCart1[i].querySelector('.product-block-prices').getAttribute('data-price');
+                        let item = listCart1[i].querySelector('input[name="qty"]'); // lấy giá trị trong thẻ input
+                        var quantity = item.value;
+                        var number = quantity * 1
+                        total += (prices * number);
+                    }
+                    $('#top-banner-icons-basket #cartModal .modal-dialog .text-success').html(total);
+                }
+            })
         })
-    })
-    // SET day
+        // SET day
     const d = new Date();
     document.getElementById("time").innerHTML = d;
 }
 
-function numberBag() {    
+function numberBag() {
     let listCart1 = document.querySelectorAll('#cartModal .modal-dialog .cart-product .product-block-container');
     document.getElementById('top-banner-icon-basket-qty').innerHTML = listCart1.length;
     console.log(listCart1.length)
-    var total=0;
-    for (var i = 0; i < listCart1.length; i++)
-     {  
+    var total = 0;
+    for (var i = 0; i < listCart1.length; i++) {
         var cart_id = listCart1[i].getAttribute('data-id');
-        var prices=listCart1[i].querySelector('.product-block-prices').getAttribute('data-price');                 
-        let item = listCart1[i].querySelector('input[name="qty"]');// lấy giá trị trong thẻ input
+        var prices = listCart1[i].querySelector('.product-block-prices').getAttribute('data-price');
+        let item = listCart1[i].querySelector('input[name="qty"]'); // lấy giá trị trong thẻ input
         var quantity = item.value;
-        var number = quantity*1 
+        var number = quantity * 1
         total += (prices * number);
-        console.log(prices,total) 
+        console.log(prices, total)
     }
     $('#top-banner-icons-basket #cartModal .modal-dialog .text-success').html(total);
 }
 
 function Remove(v) {
     let listCart = document.querySelectorAll('#cartModal .modal-dialog .cart-product .product-block-container');
-    for(var i=0;i<listCart.length;i++){
+    for (var i = 0; i < listCart.length; i++) {
         if (listCart[i].getAttribute('data-id') == v) {
             listCart[i].remove();
             bag.splice(i, 1);
         }
-    document.getElementById('top-banner-icon-basket-qty').innerHTML = listCart.length-1;
-    console.log(listCart.length)
+        document.getElementById('top-banner-icon-basket-qty').innerHTML = listCart.length - 1;
+        console.log(listCart.length)
     }
 }
 
@@ -123,7 +122,7 @@ function search_by_name() {
     var query = $('#search_input').val().toLowerCase();
     product_timkiem = timkiem(product, query)
     let s = []
-    $.each(product_timkiem, function (key, value) {
+    $.each(product_timkiem, function(key, value) {
         s.push(value.name)
     });
     $("#search_input").autocomplete({
@@ -153,7 +152,7 @@ function sortByValueDecrease(a, b) {
 function chiTiet(id) {
     localStorage.setItem("idProduct", id)
     let s1, s2 = ''
-    $.each(product, function (k, v) {
+    $.each(product, function(k, v) {
         if (v.id == id) {
             s1 = `
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -223,3 +222,8 @@ function brandChanged(obj) {
     loadData(product_timkiem3)
 }
 
+function brandChanged2(obj) {
+    var query0 = obj.innerHTML.toLocaleLowerCase()
+    product_timkiem1 = timkiem(product, query0)
+    loadData(product_timkiem1)
+}
