@@ -41,7 +41,7 @@ $(function () {
         loadData(product_timkiem);
         let a = document.querySelectorAll('.section-search p a');
         a.forEach(b => b.classList.remove('section-search-select'))
-        console.log(a.classList)
+            // console.log(a.classList)
         this.classList.add('section-search-select')
     })
     $('#section-search--span__soft-low-to-hight').click(function () {
