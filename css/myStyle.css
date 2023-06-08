@@ -406,50 +406,6 @@ img {
 /* Top menu dropdown div */
 
 
-/* Page descripton */
-
-#home-page-description {
-    margin: 15px auto 0 auto;
-    max-height: 200px;
-    line-height: 18px;
-    display: block;
-    overflow: hidden;
-    position: relative;
-    font-size: 13px;
-    color: #808080;
-}
-
-#home-page-description p {
-    margin: 0;
-    padding: 0;
-}
-
-#home-page-description-more {
-    width: 1200px;
-    margin: 0 auto 15px auto;
-    height: 18px;
-    line-height: 18px;
-    position: relative;
-    font-size: 13px;
-    color: #808080;
-    text-align: right;
-}
-
-#home-page-description-more-text {
-    display: none;
-}
-
-#home-page-description-more span {
-    font-weight: 700;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-#home-page-description-more span:hover {
-    text-decoration: none;
-}
-
-
 /* DAY LA BRAND */
 
 #home-page-brands {

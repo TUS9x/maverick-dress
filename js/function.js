@@ -169,7 +169,6 @@ function chiTiet(id) {
                     <div class="product-block-container" data-id="${v.id}">
                         <h1>${v.name}</h1>
                         <p class="product-block-prices">Price: ${v.price}</p>
-                        <div class="product-block-bag"></div>
                         </div>                    
                         </div>
                         </a>
