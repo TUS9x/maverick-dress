@@ -1,5 +1,6 @@
 //Dinh nghia ham
 let bag = [];
+let productRender = [];
 
 function loadData(arr) {
     let s = '';
@@ -74,11 +75,11 @@ function loadData(arr) {
             })
         })
         // SET day
-        intervalId = window.setInterval(function(){
-            var d = new Date();
+    intervalId = window.setInterval(function() {
+        var d = new Date();
         document.getElementById("time").innerHTML = d;
-          }, 1000);
-        // 
+    }, 1000);
+    // 
 }
 
 function numberBag() {
@@ -117,8 +118,8 @@ function timkiem(data, query) {
 
 function search_all() {
     var query = $('#search_input').val().toLowerCase();
-    product_timkiem = timkiem(product, query)
-    loadData(product_timkiem)
+    productRender = timkiem(product, query)
+    loadData(productRender)
 }
 
 function search_by_name() {
@@ -220,18 +221,20 @@ function brandChanged(obj) {
     var query3 = $('#gender').val().toLowerCase();
     product_timkiem1 = timkiem(product, query1)
     product_timkiem2 = timkiem(product_timkiem1, query2)
-    product_timkiem3 = timkiem(product_timkiem2, query3)
-    loadData(product_timkiem3)
+    productRender = timkiem(product_timkiem2, query3)
+    loadData(productRender)
 }
 
 function brandChanged2(obj) {
-    var query0 = obj.innerHTML.toLocaleLowerCase()
-    product_timkiem1 = timkiem(product, query0)
-    loadData(product_timkiem1)
+    var query0 = obj.getAttribute('value').toLowerCase();
+    productRender = timkiem(product, query0);
+    loadData(productRender);
 }
 //Buy
 function buyStatus() {
     let listCart1 = document.querySelectorAll('#cartModal .modal-dialog .cart-product .product-block-container');
-    if (listCart1.length==0) {alert("gio hang trong")} 
-    else { alert('shopping success'); location.reload()}
+    if (listCart1.length == 0) { alert("gio hang trong") } else {
+        alert('shopping success');
+        location.reload()
+    }
 }
